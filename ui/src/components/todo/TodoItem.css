@@ -1,0 +1,40 @@
+.todo-item {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.todo-item-text {
+    padding-left: 5rem;
+    font-size: 1.2rem;
+    flex: 6;
+}
+
+.todo-item-actions {
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+}
+
+.todo-item-checker {
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.todo-item-delete-btn {
+    margin-left: 10px;
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.todo-item-checker:hover,
+.todo-item-delete-btn:hover {
+    cursor: pointer;
+}

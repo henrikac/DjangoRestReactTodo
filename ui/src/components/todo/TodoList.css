@@ -1,29 +1,29 @@
-#todoList {
+#todo-list {
     max-width: 600px;
     margin: 5rem auto;
-    padding: 1rem;
+    padding: 1rem 0;
     background: #6f3;
     color: #fff;
     border-radius: 6px;
     box-shadow: 5px 10px 8px #999;
 }
 
-#todoListForm {
+#todo-list-form {
     max-width: 400px;
     margin: 0 auto;
 }
 
-#todoListInput {
+#todo-list-input {
     padding: 0.6rem 1rem;
     font-size: 1.2rem;
     border: none;
 }
 
-#todoListInput:focus {
+#todo-list-input:focus {
     outline: none;
 }
 
-#todoListBtn {
+#todo-list-btn {
     margin-left: 10px;
     padding: 0.6rem 1rem;
     font-size: 1.2rem;
@@ -33,7 +33,7 @@
     border: 1px solid #fff;
 }
 
-#todoListBtn:hover {
+#todo-list-btn:hover {
     cursor: pointer;
 }
 
