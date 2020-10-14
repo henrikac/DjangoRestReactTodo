@@ -1,0 +1,54 @@
+#todoList {
+    max-width: 600px;
+    margin: 5rem auto;
+    padding: 1rem;
+    background: #6f3;
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 5px 10px 8px #999;
+}
+
+#todoListForm {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#todoListInput {
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+}
+
+#todoListInput:focus {
+    outline: none;
+}
+
+#todoListBtn {
+    margin-left: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #6f3;
+    border: none;
+    border: 1px solid #fff;
+}
+
+#todoListBtn:hover {
+    cursor: pointer;
+}
+
+.text-title {
+    font-size: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.content-seperator-line {
+    max-width: 500px;
+    margin: 1.5rem auto;
+    padding: 0.05rem;
+    border: none;
+    background-color: #fff;
+}
