@@ -10,24 +10,17 @@ class TodoList extends React.Component {
         this.nextId = 4;
         this.state = {
             title: '',
-            todos: [
-                {
-                    id: 1,
-                    title: 'Todo item 1',
-                    completed: false,
-                },
-                {
-                    id: 2,
-                    title: 'Todo item 2',
-                    completed: false
-                },
-                {
-                    id: 3,
-                    title: 'Todo item 3',
-                    completed: false
-                }
-            ],
+            todos: [],
         };
+    }
+
+    componentDidMount = () => {
+        fetch('http://localhost:8000/api/v1/todos/')
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ todos: [...data] });
+            })
+            .catch(err => console.log(err));
     }
 
     handleTitleChange = e => {
@@ -37,23 +30,40 @@ class TodoList extends React.Component {
     addTodo = e => {
         e.preventDefault();
 
-        this.setState({
-            todos: [...this.state.todos,
-                {
-                    id: this.nextId,
-                    title: this.state.title,
-                    completed: false
-                }],
-            title: ''
-        });
+        if (this.state.title === '') return;
 
-        this.nextId += 1;
+        fetch('http://localhost:8000/api/v1/todos/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: this.state.title })
+        })
+        .then(res => res.json())
+        .then(todo => {
+            this.setState({ 
+                todos: [...this.state.todos, todo],
+                title: ''
+            })
+        })
+        .catch(err => console.log(err));
     }
 
     deleteTodo = id => {
-        this.setState({
-            todos: [...this.state.todos.filter(todo => todo.id !== id)]
-        });
+        const todo = this.state.todos.find(todo => todo.id === id);
+
+        if (!todo) return;
+
+        fetch(`http://localhost:8000/api/v1/todos/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.text())
+        .then(data => {
+            this.setState({
+                todos: [...this.state.todos.filter(todo => todo.id !== id)]
+            });
+        })
+        .catch(err => console.log(err));
     }
 
     markCompleted = id => {
