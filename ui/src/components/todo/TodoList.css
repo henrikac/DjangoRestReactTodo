@@ -2,7 +2,7 @@
     max-width: 600px;
     margin: 5rem auto;
     padding: 1rem 0;
-    background: #6f3;
+    background: #444;
     color: #fff;
     border-radius: 6px;
     box-shadow: 5px 10px 8px #999;
@@ -28,7 +28,7 @@
     padding: 0.6rem 1rem;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #6f3;
+    background-color: #444;
     border: none;
     border: 1px solid #fff;
 }
