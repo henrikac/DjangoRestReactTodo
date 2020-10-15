@@ -38,3 +38,7 @@
 .todo-item-delete-btn:hover {
     cursor: pointer;
 }
+
+.strike {
+    text-decoration: line-through;
+}
