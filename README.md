@@ -1,4 +1,4 @@
 # DjangoRestReactTodo
 
-Backend: Django + Django Rest Framework
+Backend: Django + Django Rest Framework 
 Frontend: React
