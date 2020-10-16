@@ -21,6 +21,7 @@ class TodoList extends React.Component {
                 this.setState({ todos: [...data] });
             })
             .catch(err => console.log(err));
+        
     }
 
     handleTitleChange = e => {
@@ -58,7 +59,7 @@ class TodoList extends React.Component {
             method: 'DELETE',
         })
         .then(res => res.text())
-        .then(data => {
+        .then(_ => {
             this.setState({
                 todos: [...this.state.todos.filter(todo => todo.id !== id)]
             });
@@ -67,13 +68,34 @@ class TodoList extends React.Component {
     }
 
     markCompleted = id => {
-        this.setState({ todos: this.state.todos.map(todo => {
-                if (todo.id === id) {
-                    todo.completed = !todo.completed
-                }
-                return todo;
-            })
-        });
+        const todo = this.state.todos.find(todo => todo.id === id);
+
+        if (!todo) return;
+
+        const data = {
+            ...todo,
+            completed: !todo.completed,
+            completed_at: !todo.completed ? new Date() : null
+        };
+
+        fetch(`http://localhost:8000/api/v1/todos/${id}/`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(_ => {
+            this.setState({ todos: this.state.todos.map(todo => {
+                    if (todo.id === id) {
+                        todo.completed = !todo.completed
+                    }
+                    return todo;
+                })
+            });
+        })
+        .catch(err => console.log(err));
     }
 
     render() {

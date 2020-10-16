@@ -15,6 +15,7 @@ class TodoItem extends React.Component {
                     <input
                         type="checkbox"
                         className="todo-item-checker"
+                        checked={completed}
                         onChange={this.props.markCompleted}
                     />
                     <FaTrashAlt
