@@ -1,4 +1,3 @@
 # DjangoRestReactTodo
 
-Backend: Django + Django Rest Framework 
-Frontend: React
+Simple TODO app created using React with a Django REST Framework API
