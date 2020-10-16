@@ -9,5 +9,5 @@ class TodoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Todo
         fields = '__all__'
-        read_only_fields = ('id', 'completed', 'added_at', 'completed_at')
+        read_only_fields = ('id', 'added_at')
 
